@@ -1,15 +1,15 @@
-import RootLayout from './layout'
+import RootLayout from '../layout'
 import Image from 'next/image'
-import styles from './page.module.scss'
+import styles from '../page.module.scss'
 
 import logoImg from '../../../frontend/public/android-chrome-192x192.png'
 
-import { Input } from '../component/ui/Input/index'
-import { Button } from '../component/ui/Button/index'
+import { Input } from '../../component/ui/Input'
+import { Button } from '../../component/ui/Button/index'
 
 import Link from 'next/link'
 
-export default function MinhaPagina() {
+export default function Cadastro() {
   return (
     <RootLayout title="FoodieFlow - Login">
       <div className={styles.containerCenter}>
@@ -33,10 +33,6 @@ export default function MinhaPagina() {
             </Button>
           </form>
 
-          
-          <Link href="app/signup/index">
-            <div className={styles.link}>Não possui uma conta? Cadastre-se aqui!</div>
-          </Link>
 
         </div>
 
