@@ -30,6 +30,9 @@ export default function MinhaPagina() {
               Acessar
             </Button>
           </form>
+
+          <a className={styles.text}>Não possui uma conta? Cadastre-se aqui!</a>
+
         </div>
 
       </div>
