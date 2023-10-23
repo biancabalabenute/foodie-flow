@@ -4,7 +4,8 @@ import styles from './page.module.scss'
 
 import logoImg from '../../../frontend/public/android-chrome-192x192.png'
 
-import { Input } from '../component/ui/input/index'
+import { Input } from '../component/ui/Input/index'
+import { Button } from '../component/ui/Button/index'
 
 export default function MinhaPagina() {
   return (
@@ -21,6 +22,13 @@ export default function MinhaPagina() {
               placeholder='Digite sua senha'
               type='password'
             />
+
+            <Button
+              type='submit'
+              loading={false}
+            >
+              Acessar
+            </Button>
           </form>
         </div>
 
