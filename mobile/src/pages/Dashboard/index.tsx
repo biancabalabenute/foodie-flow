@@ -1,7 +1,25 @@
 import React, { useState } from "react"
 import {View, Text, SafeAreaView, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
 
+import { NavigationContainerProps, useNavigation } from '@react-navigation/native'
+
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { StackPramsList } from '../../routes/app.routes'
+
+
 export default function Deshboard() {
+    const navigation = useNavigation<NativeStackNavigationProp<StackPramsList>>();
+
+    const [number, setNumber] = useState('');
+
+    async function openOrder() {
+        if(number === '') {
+            return;
+        }
+
+        //Precisa fazer a requisição e abrir a mesa e navegar para a proxima tela
+        navigation.navigate('Order', { number: number, order_id: '9557defc-bbd7-4af5-bc6c-ca18879ba328' })
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -12,9 +30,11 @@ export default function Deshboard() {
                 placeholderTextColor="#F0F0F0"
                 style={styles.input}
                 keyboardType="numeric"
+                value={number}
+                onChangeText={setNumber}
             />
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={openOrder}>
                 <Text style={styles.buttonText}>Abrir mesa</Text>
             </TouchableOpacity>
 
