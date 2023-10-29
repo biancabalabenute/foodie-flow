@@ -1,5 +1,7 @@
 import React, {useState, createContext, ReactNode} from "react";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import { api } from '../services/api'
 
 type AuthContextData = {
@@ -28,7 +30,7 @@ type SignInProps = {
 export const AuthContext = createContext({} as AuthContextData);
 
 export function AuthProvider({children}: AuthProviderProps) {
-    const [user, seUser] = useState<UserProps>({
+    const [user, setUser] = useState<UserProps>({
         id: '',
         name: '',
         email: '',
@@ -44,6 +46,32 @@ export function AuthProvider({children}: AuthProviderProps) {
 
         try {
             
+            const response = await api.post('/session', {
+                email,
+                password
+            })
+
+            //console.log(response.data)
+
+            const {id, name, token} = response.data;
+
+            const data = {
+                ...response.data
+            };
+
+            await AsyncStorage.setItem('@foodieflow', JSON.stringify(data))
+
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
+            setUser({
+                id,
+                name,
+                email,
+                token
+            })
+
+            setLoadingAuth(false);
+
         }catch(err) {
             console.log('Erro ao acessar', err)
             setLoadingAuth(false);
