@@ -1,12 +1,12 @@
 import Rect from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from 'react-native'
 
-import { categoryProps } from '../../pages/Order'
+import { CategoryProps } from '../../pages/Order'
 
 interface ModalPickerProps {
-    options: categoryProps[];
+    options: CategoryProps[];
     handleCloseModal: () => void;
-    selectedItem: (item: categoryProps) => void;
+    selectedItem: (item: CategoryProps) => void;
 }
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
@@ -14,7 +14,7 @@ const { width: WIDTH, height: HEIGHT } = Dimensions.get('window')
 
 export default function ModalPicker({options, handleCloseModal, selectedItem}: ModalPickerProps) {
 
-    function onPressItem(item: categoryProps) {
+    function onPressItem(item: CategoryProps) {
         //console.log(item);
         selectedItem(item);
         handleCloseModal();
