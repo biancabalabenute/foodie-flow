@@ -106,8 +106,23 @@ export default function Order() {
         setProductSelected(item);
     }
 
+    // adicionando um produto nessa mesa
     async function handleAdd() {
-        console.log('clicouuuu')
+        const response = await api.post('/order/add', {
+            order_id: route.params.order_id,
+            product_id: productSelected?.id,
+            ammount: Number(ammount)
+        })
+
+        let data = {
+            id: response.data.id,
+            product_id: productSelected?.id as string,
+            name: productSelected?.name as string,
+            ammount: ammount
+        }
+
+        setItems(oldArray => [...oldArray, data])
+
     }
 
     return(
@@ -115,9 +130,11 @@ export default function Order() {
 
             <View style={styles.header}>
                 <Text style={styles.title}>Mesa {route.params.number}</Text>
-                <TouchableOpacity onPress={handleCloseOrder}>
+                { items.length === 0 && (
+                    <TouchableOpacity onPress={handleCloseOrder}>
                     <Feather name="trash-2" size={28} color="#ff3f4b"/>
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                )}
             </View>
 
             {category.length !== 0 && (
