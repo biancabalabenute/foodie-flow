@@ -165,7 +165,7 @@ export default function Order() {
             {category.length !== 0 && (
                 <TouchableOpacity style={styles.input} onPress={() => setModalCategoryVisible(true)}>
                 <Text style={{ color: '#FFF' }}>
-                    {categorySelected?.name}r
+                    {categorySelected?.name}
                 </Text>
             </TouchableOpacity>
             )}
