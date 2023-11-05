@@ -55,7 +55,7 @@ export default function FinishOrder() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#1d1d2e",
+        backgroundColor: "#0e7a39",
         paddingVertical: '5%',
         paddingHorizontal: '4%',
         alignItems: 'center',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         marginBottom: 12,
     },
     button: {
-        backgroundColor: "#3fffa3",
+        backgroundColor: "#ff7118",
         flexDirection: 'row',
         width: '65%',
         height: 40,
