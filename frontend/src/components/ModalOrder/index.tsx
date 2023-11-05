@@ -22,7 +22,7 @@ export function ModalOrder({ isOpen, onRequestClose, order, handleFinishOrder }:
             right: 'auto',
             padding: '30px',
             transform: 'translate(-50%, -50%)',
-            backgroundColor: '#1d1d2e'
+            backgroundColor: '#0e7a39'
         }
     }
 
