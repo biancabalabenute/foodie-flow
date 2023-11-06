@@ -15,7 +15,7 @@ import { toast } from 'react-toastify';
 import Link from 'next/link';
 
 export default function SignUp() {
-  const { signUp} = useContext(AuthContext);
+  const { signUp } = useContext(AuthContext);
 
 
   const [name, setName] = useState('')
@@ -56,7 +56,7 @@ export default function SignUp() {
         <title>Faça seu cadastro agora!</title>
       </Head>
       <div className={styles.containerCenter}>
-        <Image src={logoImg} alt="Logo Sujeito Pizzaria" />
+        <Image src={logoImg} alt="Logo foodie flow" />
 
         <div className={styles.login}>
           <h1>Criando sua conta</h1>
